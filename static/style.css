@@ -1,13 +1,25 @@
+@font-face {
+    font-family: "DSEG7";
+    src: url("DSEG7Classic-Bold.woff2");
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: DSEG7;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: #080808;
 }
+
 #time {
-    font-size: 3rem;
-    color: #333;
+    font-size: 12rem;
+    color: red;
+    user-select: none;
 }
+
+#time .ms {
+    font-size: 8rem;
+}
+

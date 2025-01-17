@@ -6,15 +6,22 @@
     <title>Real-time clock</title>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
+
 <body>
+
     <div id="time">Loading...</div>
     <script>
         function updateTime() {
             const now = new Date();
-            const timeString = now.toLocaleTimeString();
-            document.getElementById('time').textContent = timeString;
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const milliseconds = (now.getMilliseconds() / 10 | 0).toString().padStart(2, '0');
+
+            const timeString = `${hours}:${minutes}:${seconds}<span class ="ms">:${milliseconds}</span>`;
+            document.getElementById('time').innerHTML = timeString;
         }
-        setInterval(updateTime, 1000); // 毎秒更新
+        setInterval(updateTime, 10); // 10ms毎に更新
         updateTime(); // 初回の即時実行
     </script>
 </body>

@@ -8,21 +8,42 @@
 </head>
 
 <body>
+    <div class="container">
+        <div id="time">Loading...</div>
+        <script>
+            function updateTime() {
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                const seconds = now.getSeconds().toString().padStart(2, '0');
+                const milliseconds = (now.getMilliseconds() / 10 | 0).toString().padStart(2, '0');
 
-    <div id="time">Loading...</div>
-    <script>
-        function updateTime() {
-            const now = new Date();
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-            const milliseconds = (now.getMilliseconds() / 10 | 0).toString().padStart(2, '0');
+                const timeString = `${hours}:${minutes}:${seconds}<span class ="ms">:${milliseconds}</span>`;
+                document.getElementById('time').innerHTML = timeString;
+            }
+            setInterval(updateTime, 10); // 10ms毎に更新
+            updateTime(); // 初回の即時実行
+        </script>
 
-            const timeString = `${hours}:${minutes}:${seconds}<span class ="ms">:${milliseconds}</span>`;
-            document.getElementById('time').innerHTML = timeString;
-        }
-        setInterval(updateTime, 10); // 10ms毎に更新
-        updateTime(); // 初回の即時実行
-    </script>
+        <div class="container-col">
+            <div class="box">
+                INTERNAL
+            </div>
+
+            <div class="box" style="height: 6vh">
+                test
+            </div>
+
+            <div class="box">
+                EXTERNAL
+            </div>
+        </div>
+
+        
+
+
+    </div>
+
+
 </body>
 </html>
